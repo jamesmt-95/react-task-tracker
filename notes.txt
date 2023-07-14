@@ -1,0 +1,11 @@
+First React project built with the help of React crash course by Traversy Media
+
+#----- Folder Structure -----
+./public folder contains the main index.html file
+./src folder contains the index.js, App component (default) and it's css, index.css etc...
+
+#----- JSX -----
+Change the  language mode from JavaScript to JavaScript JSX (javascriptreact), to get the Emmet support in JSX
+JSX Expressions must have one parent element. So use a <div> to wrap, or <> & </>
+Also, import {React} and use <React.Fragment></React.Fragment>
+

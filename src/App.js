@@ -2,8 +2,9 @@
 // import "./App.css";
 
 import React from "react";
+import Header from "./components/Header";
 
-function App() {
+function Test() {
   const name = "James"
   const score = 80;
   return (
@@ -19,6 +20,18 @@ function App() {
   );
 }
 
+function App(){
+  return (
+    <div className="container">
+      {/* <Header title={'Task Tracker'} name={'James'} age={'Age'}/> */}
+      <Header title={'Task Tracker'}/>
+      {/* If no props given, defaultProps object will be used */}
+    </div>
+  )
+}
+
+
 export default App;
+export {Test}
 
 //We are not using logo.svg, app.css, app.test.js etc.. so commenting

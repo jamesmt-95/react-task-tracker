@@ -9,3 +9,4 @@ Change the  language mode from JavaScript to JavaScript JSX (javascriptreact), t
 JSX Expressions must have one parent element. So use a <div> to wrap, or <> & </>
 Also, import {React} and use <React.Fragment></React.Fragment>
 
+#----- Creating Components -----

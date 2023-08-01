@@ -45,6 +45,10 @@ function App() {
     },
   ])
 
+  //State for toggling AddTask form
+
+  const [formVisible, setFormVisible] = useState(false);
+
   //SetTasks function for updating the state of Taks Component.
   const updateTasks = () => {
     const newTasks = tasks.map((task, index) => {
@@ -56,9 +60,21 @@ function App() {
     })
     setTasks(newTasks)
   }
+
+  // function to show/hide AddTasks Form
+
+  const showForm = () => {
+    setFormVisible(!formVisible)
+  }
+
+
   //Add task 
-  const addTask = (task)=>{
-    console.log(task)
+  const addTask = (task) => {
+    // console.log(task)
+    const _id = (tasks.length) + 1; // Or Random Number
+    const newTask = { _id, ...task }
+    // setTasks([...tasks, { ...task }])
+    setTasks([...tasks, { ...newTask }])  //or newTask
   }
 
   //Function to delete a task
@@ -74,14 +90,15 @@ function App() {
   return (
     <div className="container">
       {/* <Header title={'Task Tracker'} name={'James'} age={'Age'}/> */}
-      <Header title={'Task Tracker'} />
-      <AddTasks addTask={addTask}/>
+      <Header title={'Task Tracker'} showForm={showForm} formStatus={formVisible} />
+      {formVisible && <AddTasks addTask={addTask} />}
+      {/* {formVisible? <AddTasks addTask={addTask} /> : ''} */}
       {/* If no props given, defaultProps object will be used */}
       {tasks.length > 0 ? <Tasks tasks={tasks} setTasks={updateTasks} deleteTask={deleteTask} onToggle={toggleReminder} />
         :
         <p style={{ color: 'red' }}>No Tasks to show</p>
       }
-    
+
     </div>
   )
 }

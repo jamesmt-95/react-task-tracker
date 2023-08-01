@@ -8,7 +8,7 @@ function Button(props) {
     return (
         <button
             onClick={props.onClick}     //or we can use onClick declared in the Button
-            style={{ backgroundColor: props.color }}
+            style={{ backgroundColor: props.color, minWidth:'85px' }}
             className="btn"
         >
             {props.text}

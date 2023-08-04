@@ -45,14 +45,10 @@ function App() {
     },
   ])
 
-  //State for toggling AddTask form
-
-  const [formVisible, setFormVisible] = useState(false);
-
   //SetTasks function for updating the state of Taks Component.
   const updateTasks = () => {
     const newTasks = tasks.map((task, index) => {
-      console.log('called')
+      // console.log('called')
       if (task.id === 2) {
         return { ...task, text: 'Meeting at Office' }
       }
@@ -61,14 +57,15 @@ function App() {
     setTasks(newTasks)
   }
 
-  // function to show/hide AddTasks Form
+  //State for toggling AddTask form
+  const [formVisible, setFormVisible] = useState(false);
 
+  //function to show/hide AddTasks Form
   const showForm = () => {
     setFormVisible(!formVisible)
   }
 
-
-  //Add task 
+  //function to Add task 
   const addTask = (task) => {
     // console.log(task)
     const _id = (tasks.length) + 1; // Or Random Number
@@ -82,7 +79,7 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  //Toggle Reminder
+  //function to Toggle Reminder
   const toggleReminder = (id) => {
     setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
   }

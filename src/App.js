@@ -2,7 +2,7 @@
 // import "./App.css";
 
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTasks from "./components/AddTasks";
@@ -154,19 +154,31 @@ function App() {
   }
 
   return (
-    <div className="container">
-      {/* <Header title={'Task Tracker'} name={'James'} age={'Age'}/> */}
-      <Header title={'Task Tracker'} showForm={showForm} formStatus={formVisible} />
-      {formVisible && <AddTasks addTask={addTask} />}
-      {/* {formVisible? <AddTasks addTask={addTask} /> : ''} */}
-      {/* If no props given, defaultProps object will be used */}
-      {tasks.length > 0 ? <Tasks tasks={tasks} setTasks={updateTasks} deleteTask={deleteTask} onToggle={toggleReminder} />
-        :
-        <p style={{ color: 'red' }}>No Tasks to show</p>
-      }
-      <Footer />
-      <About/>
-    </div>
+    <BrowserRouter>
+    
+      <div className="container">
+        {/* <Header title={'Task Tracker'} name={'James'} age={'Age'}/> */}
+        <Header title={'Task Tracker'} showForm={showForm} formStatus={formVisible} />
+        {formVisible && <AddTasks addTask={addTask} />}
+        {/* {formVisible? <AddTasks addTask={addTask} /> : ''} */}
+        {/* If no props given, defaultProps object will be used */}
+        {tasks.length > 0 ? <Tasks tasks={tasks} setTasks={updateTasks} deleteTask={deleteTask} onToggle={toggleReminder} />
+          :
+          <p style={{ color: 'red' }}>No Tasks to show</p>
+        }
+        <Footer />
+        <Routes>
+          <Route path="/" element={
+            <>
+            {/* We can add  Line no.162 - 168 here*/}
+            </>
+          }/>
+        <Route path="/about" element={<About />}/>
+       
+        </Routes>
+      </div>
+      
+    </BrowserRouter>
   )
 }
 
